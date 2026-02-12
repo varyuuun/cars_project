@@ -1,63 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Hladun Varvara">
-    <title>Бренди</title>
+    <title>Характеристики - Таблиці</title>
 </head>
 
-<body style="background-image: url('bg_pattern.png'); background-color: #e6e6e6;">
-    <h3>Популярні Бренди</h3>
+<body style="background-color: #e6e6e6;">
+    <h2 align="center">Порівняльна таблиця брендів</h2>
 
-    <table border="1" cellpadding="10">
-        <caption>Таблиця 1: Характеристики брендів</caption>
-        <tr bgcolor="gray">
-            <th>Зображення</th>
-            <th>Бренд</th>
-            <th>Країна</th>
-            <th>Рік заснування</th>
+    <table border="1" cellpadding="8" width="100%">
+        <caption>Таблиця 1: Фото, Посилання та Опис</caption>
+        <tr bgcolor="#ffeb3b">
+            <th>BMW</th>
+            <th>Mercedes</th>
+            <th>Volkswagen</th>
+            <th>Інші</th>
         </tr>
         <tr>
-            <td><img src="images/BMW.svg" width="50" height="50" alt="Logo"></td>
-            <td><a href="https://www.bmw.ua/uk/index.html">BMW</a></td>
-            <td>Німеччина</td>
-            <td>1916</td>
+            <td align="center"><img src="images/BMW.svg" width="60" alt="BMW"></td>
+            <td align="center"><img src="images/mers.jpg" width="60" alt="Mers"></td>
+            <td align="center"><img src="images/volkswagen.png" width="60" alt="VW"></td>
+            <td align="center"><img src="images/BMW.svg" width="60" alt="Logo"></td>
         </tr>
         <tr>
-            <td><img src="images/mers.jpg" width="50" height="50" alt="Logo"></td>
-            <td><a href="https://www.mercedes-benz.ua/">Mercedes</a></td>
-            <td>Німеччина</td>
-            <td>1926</td>
+            <td align="center"><a href="https://bmw.ua">Сайт</a></td>
+            <td align="center"><a href="https://mercedes-benz.ua">Сайт</a></td>
+            <td align="center"><a href="https://volkswagen.ua">Сайт</a></td>
+            <td align="center"><a href="index.html">Додому</a></td>
         </tr>
         <tr>
-            <td><img src="images/volkswagen.png" width="50" height="50" alt="Logo"></td>
-            <td><a href="https://www.volkswagen.ua/">Volkswagen</a></td>
-            <td>Німеччина</td>
-            <td>1937</td>
+            <td>Драйв та потужність.</td>
+            <td>Престиж та статус.</td>
+            <td>Надійність та комфорт.</td>
+            <td>Додаткові моделі.</td>
         </tr>
     </table>
 
-    <h3>Складна таблиця (Об'єднання та групування):</h3>
-    <table border="2" cellspacing="5" cellpadding="15" width="80%">
+    <br>
+    <hr><br>
+
+    <h3>Складна специфікація (Об'єднання клітинок)</h3>
+    <table border="2" cellspacing="4" cellpadding="10" width="80%">
         <colgroup>
-            <col span="1" style="background-color: #d1d1d1;">
-            <col style="background-color: #ffffff;">
+            <col style="background-color: #f2f2f2;">
+            <col span="2">
         </colgroup>
-        <tr align="center">
-            <th colspan="3">Технічні дані</th>
+        <tr bgcolor="#cccccc">
+            <th colspan="3">Технічні дані двигунів</th>
         </tr>
         <tr>
-            <td rowspan="2">Двигун</td>
-            <td>V6 3.0L</td>
-            <td>350 к.с.</td>
+            <td rowspan="2" align="center"><b>Бензинові</b></td>
+            <td>2.0 Turbo</td>
+            <td>245 к.с.</td>
         </tr>
         <tr>
-            <td>V8 4.4L</td>
-            <td>500 к.с.</td>
+            <td>3.0 TwinTurbo</td>
+            <td>340 к.с.</td>
+        </tr>
+        <tr>
+            <td align="center"><b>Дизельні</b></td>
+            <td>2.0 Diesel</td>
+            <td>190 к.с.</td>
         </tr>
     </table>
-    <a href="index.html">Назад на головну</a>
 </body>
 
 </html>
