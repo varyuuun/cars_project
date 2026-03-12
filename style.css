@@ -2,11 +2,9 @@
 
 body {
     background-color: #f0f4f8;
-    /* Дуже світлий сіро-блакитний фон */
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     color: #2c3e50;
-    /* Глибокий темно-синій колір тексту */
     line-height: 1.7;
     margin: 0;
     padding: 30px;
@@ -19,7 +17,6 @@ h1,
 h2,
 h3 {
     color: #1b263b;
-    /* Насичений темно-військовий синій */
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -29,15 +26,13 @@ h3 {
 /* 3. Посилання */
 
 a {
-    color: #415a77;
-    /* Стриманий синій */
+    color: #405b8e;
     text-decoration: none;
     transition: 0.3s ease;
 }
 
 a:hover {
-    color: #1b263b;
-    text-decoration: underline;
+    color: #0e141f;
 }
 
 
@@ -65,7 +60,6 @@ dt {
 dd {
     margin-bottom: 15px;
     border-left: 4px solid #778da9;
-    /* Синій акцент зліва */
     padding-left: 15px;
     font-style: italic;
 }
@@ -78,16 +72,14 @@ table {
     border-collapse: collapse;
     background: #ffffff;
     margin: 30px 0;
-    border-radius: 10px;
+    border-radius: 20px;
     overflow: hidden;
-    /* Щоб закруглення працювали */
     box-shadow: 0 10px 25px rgba(65, 90, 119, 0.1);
 }
 
 th {
-    background-color: #1b263b;
-    /* Темно-синій заголовок */
-    color: #ffffff;
+    background-color: #253450;
+    color: #f0f4f8;
     padding: 15px;
     border: 1px solid #415a77;
     font-size: 0.9em;
@@ -100,7 +92,6 @@ td {
 
 tr:nth-child(even) {
     background-color: #f8fbff;
-    /* Легкий блакитний відтінок для "зебри" */
 }
 
 
@@ -117,7 +108,6 @@ tr:nth-child(even) {
 .dealer-card {
     background: #ffffff;
     border-top: 5px solid #415a77;
-    /* Синя смуга зверху */
     padding: 25px;
     width: 280px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
@@ -127,7 +117,6 @@ tr:nth-child(even) {
 
 .dealer-card:hover {
     transform: translateY(-5px);
-    /* Ефект при піднятті */
 }
 
 .dealer-card h4 {
@@ -135,6 +124,12 @@ tr:nth-child(even) {
     color: #1b263b;
     border-bottom: 1px solid #eee;
     padding-bottom: 5px;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
 
