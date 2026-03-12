@@ -1,0 +1,147 @@
+/* 1. Загальні налаштування */
+
+body {
+    background-color: #f0f4f8;
+    /* Дуже світлий сіро-блакитний фон */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: #2c3e50;
+    /* Глибокий темно-синій колір тексту */
+    line-height: 1.7;
+    margin: 0;
+    padding: 30px;
+}
+
+
+/* 2. Заголовки (HN) */
+
+h1,
+h2,
+h3 {
+    color: #1b263b;
+    /* Насичений темно-військовий синій */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+
+/* 3. Посилання */
+
+a {
+    color: #415a77;
+    /* Стриманий синій */
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    color: #1b263b;
+    text-decoration: underline;
+}
+
+
+/* 4. Списки та блоки (для Index та History) */
+
+ul,
+ol,
+dl {
+    background-color: #ffffff;
+    padding: 30px 45px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: 25px auto;
+    border: 1px solid #d1d9e6;
+    /* М'яка блакитна рамка */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+dt {
+    font-weight: bold;
+    color: #1b263b;
+    margin-top: 10px;
+}
+
+dd {
+    margin-bottom: 15px;
+    border-left: 4px solid #778da9;
+    /* Синій акцент зліва */
+    padding-left: 15px;
+    font-style: italic;
+}
+
+
+/* 5. Таблиці (Технічний стиль для Brands) */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    margin: 30px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    /* Щоб закруглення працювали */
+    box-shadow: 0 10px 25px rgba(65, 90, 119, 0.1);
+}
+
+th {
+    background-color: #1b263b;
+    /* Темно-синій заголовок */
+    color: #ffffff;
+    padding: 15px;
+    border: 1px solid #415a77;
+    font-size: 0.9em;
+}
+
+td {
+    padding: 15px;
+    border: 1px solid #d1d9e6;
+}
+
+tr:nth-child(even) {
+    background-color: #f8fbff;
+    /* Легкий блакитний відтінок для "зебри" */
+}
+
+
+/* 6. Картки дилерів для Contacts */
+
+.dealer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.dealer-card {
+    background: #ffffff;
+    border-top: 5px solid #415a77;
+    /* Синя смуга зверху */
+    padding: 25px;
+    width: 280px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.dealer-card:hover {
+    transform: translateY(-5px);
+    /* Ефект при піднятті */
+}
+
+.dealer-card h4 {
+    margin: 0 0 10px 0;
+    color: #1b263b;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+
+/* 7. Зображення */
+
+img {
+    border-radius: 8px;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
