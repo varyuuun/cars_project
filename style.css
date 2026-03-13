@@ -10,6 +10,15 @@ body {
     padding: 30px;
 }
 
+#services {
+    display: block;
+    text-align: center;
+    margin: 40px auto;
+    color: #1b263b;
+    width: fit-content;
+    border-bottom: 2px solid #415a77;
+}
+
 
 /* 2. Заголовки (HN) */
 
@@ -20,6 +29,10 @@ h3 {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+}
+
+p {
+    color: #0e141f;
 }
 
 
@@ -47,7 +60,6 @@ dl {
     max-width: 900px;
     margin: 25px auto;
     border: 1px solid #d1d9e6;
-    /* М'яка блакитна рамка */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
