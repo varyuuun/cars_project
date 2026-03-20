@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 /* 1. Загальні налаштування */
 
 body {
@@ -29,6 +36,7 @@ h3 {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    margin-bottom: 20px;
 }
 
 p {
@@ -147,8 +155,56 @@ tr:nth-child(even) {
 
 /* 7. Зображення */
 
+.car-preview {
+    border: none;
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+}
+
 img {
     border-radius: 8px;
     border: 2px solid #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 8. Контекстні, дочірні та сусідні селектори */
+
+.dealer-card p {
+    color: #415a77;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.dealer-card p b {
+    color: #1b263b;
+}
+
+.nav-menu>a {
+    background-color: #253450;
+    color: #f0f4f8;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    display: inline-block;
+}
+
+.nav-menu>a:hover {
+    background-color: #9db4f893;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+h3+p {
+    border-left: 4px solid #ff3f3f;
+    padding-left: 15px;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
