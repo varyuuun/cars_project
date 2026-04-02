@@ -174,8 +174,6 @@ img {
 
 .dealer-card p {
     color: #415a77;
-    margin-bottom: 8px;
-    font-size: 0.95em;
 }
 
 .dealer-card p b {
@@ -185,26 +183,15 @@ img {
 .nav-menu>a {
     background-color: #253450;
     color: #f0f4f8;
-    padding: 10px 25px;
-    border-radius: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.85em;
+    padding: 10px;
     display: inline-block;
 }
 
 .nav-menu>a:hover {
-    background-color: #9db4f893;
-    color: #ffffff;
-    transform: scale(1.05);
+    background-color: #9db4f8;
 }
 
 h3+p {
     border-left: 4px solid #ff3f3f;
     padding-left: 15px;
-    background-color: #ffffff;
-    padding: 15px;
-    border-radius: 0 8px 8px 0;
-    margin-top: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
