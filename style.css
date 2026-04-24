@@ -44,20 +44,28 @@ p {
 }
 
 
-/* 3. Посилання */
+/*Псевдокласи для посилань */
 
-a {
+a:link {
     color: #405b8e;
     text-decoration: none;
     transition: 0.3s ease;
+}
+
+a:visited {
+    color: #8a01ce;
 }
 
 a:hover {
     color: #0e141f;
 }
 
+a:active {
+    color: #ff3f3f;
+}
 
-/* 4. Списки та блоки (для Index та History) */
+
+/* 4. Списки та блоки */
 
 ul,
 ol,
@@ -85,7 +93,7 @@ dd {
 }
 
 
-/* 5. Таблиці (Технічний стиль для Brands) */
+/* 5. Таблиці */
 
 table {
     width: 100%;
@@ -115,7 +123,7 @@ tr:nth-child(even) {
 }
 
 
-/* 6. Картки дилерів для Contacts */
+/* 6. Картки дилерів */
 
 .dealer-grid {
     display: flex;
@@ -184,14 +192,87 @@ img {
     background-color: #253450;
     color: #f0f4f8;
     padding: 10px;
+    border-radius: 15px;
     display: inline-block;
 }
 
 .nav-menu>a:hover {
-    background-color: #9db4f8;
+    background-color: #141a2d;
 }
 
 h3+p {
     border-left: 4px solid #ff3f3f;
     padding-left: 15px;
+}
+
+
+/* Властивість Position */
+
+.relative-box {
+    position: relative;
+}
+
+.absolute-badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: #ff3f3f;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Властивість Float та очищення обтікання */
+
+.float-right {
+    float: right;
+    width: 250px;
+    background-color: #e2e8f0;
+    padding: 15px;
+    margin: 0 0 15px 20px;
+    border-left: 4px solid #415a77;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Застосування <span> для рядкових елементів */
+
+span.accent {
+    background-color: #ffeaa7;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #000 !important;
+    font-weight: bold;
+}
+
+
+/* Псевдоклас :first-child (виділення першої картки) */
+
+.dealer-grid .dealer-card:first-child {
+    border-top: 5px solid #ff3f3f;
+    background-color: #fffaf0;
+}
+
+
+/* Псевдоелементи :before та :after */
+
+h2::before {
+    content: "-";
+}
+
+h3::after {
+    content: "//";
+    color: #778da9;
+    font-size: 0.8em;
 }
