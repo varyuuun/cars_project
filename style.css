@@ -245,9 +245,6 @@ h3+p {
     clear: both;
 }
 
-
-/* Застосування <span> для рядкових елементів */
-
 span.accent {
     background-color: #ffeaa7;
     padding: 2px 6px;
@@ -268,11 +265,11 @@ span.accent {
 /* Псевдоелементи :before та :after */
 
 h2::before {
-    content: "-";
+    content: "✓";
 }
 
 h3::after {
-    content: "//";
+    content: "←";
     color: #778da9;
     font-size: 0.8em;
 }
