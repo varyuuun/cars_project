@@ -26,13 +26,19 @@ function userDialog() {
     }
 }
 
-// Функція виводу інформації про розробника з параметром за замовчуванням
+// Функція виводу інформації про розробника 
 function showDeveloperInfo(surname, name, position = "Веб-розробник (Студент)") {
-    console.log(`--- Інформація про розробника ---`);
-    console.log(`Прізвище: ${surname}`);
-    console.log(`Ім'я: ${name}`);
-    console.log(`Посада: ${position}`);
-    console.log(`---------------------------------`);
+    const devFooter = document.createElement("div");
+    devFooter.style.backgroundColor = "#1a317d";
+    devFooter.style.color = "#f0f4f8";
+    devFooter.style.textAlign = "center";
+    devFooter.style.padding = "15px";
+    devFooter.style.marginTop = "40px";
+    devFooter.style.borderTop = "4px solid #ff3f3f";
+
+    devFooter.innerHTML = `👨‍💻 <b>Розробник:</b> ${surname} ${name} | <b>Посада:</b> ${position}`;
+
+    document.body.append(devFooter);
 }
 
 // Функція порівняння двох рядків
@@ -71,7 +77,7 @@ function redirectToCatalog() {
         redirectToPage("brands.html");
     }
 }
-І
+
 
 // Робота з DOM (запускається після завантаження сторінки)
 function manipulateDOM() {
