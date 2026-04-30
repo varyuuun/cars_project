@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Стилі для цієї сторінки залишені без змін */
-        
         a {
             color: #405b8e;
             font-weight: bold;
@@ -18,11 +16,21 @@
         p {
             color: blue !important;
         }
+        
+        .action-btn {
+            margin: 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+            background: #253450;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
 <body>
-    <h1>Das Auto Portal</h1>
+    <h1 id="main-title">Das Auto Portal</h1>
 
     <p align="center" style="font-size: 1.1em; word-spacing: 15px;">
         <a href="brands.html"><b>Каталог</b></a>
@@ -31,10 +39,17 @@
         <a href="#services"><b>Послуги</b></a>
     </p>
 
+    <!-- Панель кнопок для виклику функцій з зовнішнього скрипта -->
+    <div align="center">
+        <button class="action-btn" onclick="userDialog()">Діалог з користувачем</button>
+        <button class="action-btn" onclick="redirectToCatalog()">Перейти в каталог</button>
+        <button class="action-btn" onclick="testDocumentWrite()">Тест document.write</button>
+    </div>
+
     <hr>
 
     <div class="clearfix">
-        <div class="float-right">
+        <div class="float-right" id="fact-block">
             <b>Цікавий факт:</b> Німецькі автомобілі історично вважаються еталоном якості збірки та інноваційних технологій.
         </div>
         <p style="text-align: center ; font-size: 22px; color: #ff3f3f ; font-style: italic;">
@@ -43,10 +58,10 @@
     </div>
 
     <h3 id="services">Наші основні послуги:</h3>
-    <ol type="I">
+    <ol type="I" id="services-list">
         <li>Актуальний моніторинг цін на преміальні моделі 2024 року.</li>
         <li>Технічний аналіз типів палива та потужності агрегатів.</li>
-        <li>Допомога у пошуку офіційних дилерських центрів в Україні.</li>
+        <li class="remove-me">Допомога у пошуку офіційних дилерських центрів в Україні.</li>
     </ol>
 
     <h3>Класифікація кузовів</h3>
@@ -61,6 +76,23 @@
     <p align="center">
         Код проєкту доступний у <a href="https://github.com/varyuuun/cars_project" target="_blank">репозиторії на GitHub</a>.
     </p>
+
+    <!-- ВНУТРІШНІЙ СКРИПТ (Завдання 1) -->
+    <script>
+        // Застосування функцій alert, prompt, confirm при завантаженні
+        let isReady = confirm("Бажаєте налаштувати сторінку під себе?");
+        if (isReady) {
+            let userName = prompt("Як вас звати?", "Гість");
+            if (userName) {
+                alert("Вітаємо, " + userName + ", на порталі Das Auto!");
+            }
+        } else {
+            alert("Ви переглядаєте сторінку у стандартному режимі.");
+        }
+    </script>
+
+    <!-- ПІДКЛЮЧЕННЯ ЗОВНІШНЬОГО СКРИПТА (Завдання 1 та 2) -->
+    <script src="script.js"></script>
 </body>
 
 </html>
