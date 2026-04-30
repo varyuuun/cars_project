@@ -156,3 +156,96 @@ document.addEventListener("DOMContentLoaded", () => {
     // Маніпуляції з DOM
     manipulateDOM();
 });
+
+
+// Міні-гра "ГАРАЖ"
+
+// Подія миші через АТРИБУТ (в HTML: onmouseenter="inspectCar()")
+function inspectCar() {
+    const car = document.getElementById("game-car");
+    car.style.boxShadow = "0 0 20px #405b8e";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    const car = document.getElementById("game-car");
+
+    if (car) {
+        // Подія миші через ВЛАСТИВІСТЬ
+        car.onmouseleave = function() {
+            this.style.boxShadow = "none";
+        };
+
+        // addEventListener: ОДНІЙ події РІЗНІ обробники
+        // Обробник 1: Блимання фар (зміна фону)
+        function lightsHandler() {
+            car.style.backgroundColor = car.style.backgroundColor === "rgb(255, 234, 167)" ? "#e2e8f0" : "#ffeaa7";
+        }
+
+        function logHandler() {
+            console.log("Дія: Користувач клікнув по авто.");
+        }
+        car.addEventListener("click", lightsHandler);
+        car.addEventListener("click", logHandler);
+    }
+
+    // ОБ'ЄКТ як обробник події (Сигналізація)
+    const alarmSystem = {
+        handleEvent(event) {
+            event.currentTarget.style.border = "5px solid red";
+            alert(`🚨 ВІУ-ВІУ! Спрацювала сигналізація на елементі: ${event.currentTarget.tagName}!`);
+        }
+    };
+
+    const lockBtn = document.getElementById("lock-btn");
+    const unlockBtn = document.getElementById("unlock-btn");
+
+    if (lockBtn && unlockBtn && car) {
+        lockBtn.addEventListener("click", () => {
+            car.addEventListener("click", alarmSystem);
+            alert("🔒 Сигналізацію активовано! Спробуйте клікнути на машину.");
+        });
+
+        unlockBtn.addEventListener("click", () => {
+            car.removeEventListener("click", alarmSystem);
+            car.style.border = "3px dashed #415a77";
+            alert("🔓 Сигналізацію вимкнено. Можете безпечно клікати.");
+        });
+    }
+
+    // ДЕЛЕГУВАННЯ: Підсвічування списку тюнінгу
+    const tuningList = document.getElementById("tuning-list");
+    if (tuningList) {
+        tuningList.addEventListener("click", (event) => {
+            if (event.target.tagName === "LI") {
+                event.target.classList.toggle("highlighted-tuning");
+            }
+        });
+    }
+
+    // МЕНЮ: Один обробник + атрибути data-*
+    const driveMenu = document.getElementById("drive-menu");
+    if (driveMenu && car) {
+
+        const carControls = {
+            forward() { car.style.transform = "translateX(50px)"; },
+            reverse() { car.style.transform = "translateX(-50px)"; },
+            stop() { car.style.transform = "translateX(0)"; }
+        };
+
+        driveMenu.addEventListener("click", (event) => {
+            const action = event.target.dataset.action;
+            if (action && carControls[action]) {
+                carControls[action]();
+            }
+        });
+    }
+
+    // 6. ПАТЕРН Behavior
+    // Вішаємо глобальний обробник: все, що має data-behavior="clean", буде видалятися по кліку
+    document.addEventListener("click", (event) => {
+        if (event.target.dataset.behavior === "clean") {
+            event.target.style.transform = "scale(0)";
+            setTimeout(() => event.target.remove(), 300); // Плавно видаляємо елемент з DOM
+        }
+    });
+});

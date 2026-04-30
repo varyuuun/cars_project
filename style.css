@@ -273,3 +273,79 @@ h3::after {
     color: #778da9;
     font-size: 0.8em;
 }
+
+
+/*  Стилі для міні-гри */
+
+.game-container {
+    background: #ffffff;
+    border: 2px solid #415a77;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 900px;
+    margin: 30px auto;
+    box-shadow: 0 10px 25px rgba(65, 90, 119, 0.1);
+}
+
+.car-object {
+    width: 200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #e2e8f0;
+    border: 3px dashed #415a77;
+    border-radius: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.game-panels {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.panel {
+    background: #f8fbff;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #d1d9e6;
+    width: 45%;
+}
+
+.tuning-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tuning-list li {
+    padding: 10px;
+    margin: 5px 0;
+    background: #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+/* Клас для підсвічування списку (Делегування) */
+
+.highlighted-tuning {
+    background: #405b8e !important;
+    color: white;
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+.junk-item {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    background: #ffeaa7;
+    border: 1px solid #fdcb6e;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}

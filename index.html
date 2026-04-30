@@ -90,6 +90,52 @@
         }
     </script>
 
+    <hr>
+    <h2 id="game-title">🎮 Міні-гра: Інтерактивний Гараж</h2>
+
+    <div class="game-container">
+        <!-- Машинка. onmouseenter додано через атрибут -->
+        <div id="game-car" class="car-object" onmouseenter="inspectCar()">
+            <span style="font-size: 40px;">🚙</span>
+            <p>Ваше авто</p>
+        </div>
+
+        <div align="center" style="margin-top: 20px;">
+            <button id="lock-btn" class="action-btn">🔒 Увімкнути сигналізацію</button>
+            <button id="unlock-btn" class="action-btn" style="background: #ff3f3f;">🔓 Вимкнути сигналізацію</button>
+        </div>
+
+        <div class="game-panels">
+            <!-- Меню списку: Тюнінг (Делегування) -->
+            <div class="panel">
+                <h4>🛠️ Тюнінг-меню:</h4>
+                <ul id="tuning-list" class="tuning-list">
+                    <li>Спортивний вихлоп</li>
+                    <li>Тонування вікон</li>
+                    <li>Неонова підсвітка</li>
+                </ul>
+            </div>
+
+            <!-- Меню кнопок: Рух (data-action) -->
+            <div class="panel">
+                <h4>🕹️ Керування рухом:</h4>
+                <div id="drive-menu" class="nav-menu">
+                    <button data-action="forward" class="action-btn">Вперед 🏁</button>
+                    <button data-action="reverse" class="action-btn">Назад 🔙</button>
+                    <button data-action="stop" class="action-btn">Гальмо 🛑</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Патерн Behavior -->
+        <div align="center" style="margin-top: 20px;">
+            <h4>🧹 Приберіть гараж (клікніть на сміття):</h4>
+            <span data-behavior="clean" class="junk-item">🛞 Стара шина</span>
+            <span data-behavior="clean" class="junk-item">🛢️ Порожня каністра</span>
+            <span data-behavior="clean" class="junk-item">🔧 Зламаний ключ</span>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 
