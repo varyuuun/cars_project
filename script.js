@@ -113,6 +113,16 @@ function manipulateDOM() {
             }, 10000);
         }, 2000);
     }
+
+    // Видалення елемента списку за класом
+    const itemToRemove = document.querySelector("#services-list .remove-me");
+
+    if (itemToRemove) {
+        setTimeout(() => {
+            itemToRemove.remove();
+            console.log("Елемент списку (remove-me) видалено.");
+        }, 3000);
+    }
 }
 
 // Окремі функції для кнопок
