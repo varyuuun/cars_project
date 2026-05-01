@@ -2,10 +2,8 @@
 function userDialog() {
     let continueDialog = true;
 
-    // Цикл
     while (continueDialog) {
         let age = prompt("Введіть ваш вік для перевірки доступу до преміум-каталогу:", "18");
-
 
         if (age === null) {
             alert("Діалог скасовано.");
@@ -52,53 +50,26 @@ function compareStrings(str1, str2) {
     }
 }
 
-// Зміна фону сторінки на 30 секунд
-function changeBackgroundTemporarily() {
-    const originalBackground = document.body.style.backgroundColor;
-    document.body.style.backgroundColor = "#dff9fb"; // Встановлюємо новий фон
-
-    // setTimeout для повернення старого фону через 30 секунд (30000 мс)
-    setTimeout(() => {
-        document.body.style.backgroundColor = originalBackground;
-        console.log("Фон сторінки повернуто до початкового.");
-    }, 30000);
-}
-
-
-
-
 // Перенаправлення за допомогою об'єкта location
 function redirectToPage(url) {
     location.href = url;
 }
-// Функція-обгортка для кнопки
+
 function redirectToCatalog() {
     if (confirm("Перейти до сторінки 'Бренди та Характеристики'?")) {
         redirectToPage("brands.html");
     }
 }
 
-
 // Робота з DOM (запускається після завантаження сторінки)
 function manipulateDOM() {
-
+    // 1. Пошук та логування (властивості вузла)
     const servicesTitle = document.getElementById("services");
-    const allLinks = document.querySelectorAll("a");
-
-    // Використання властивостей DOM-вузла
     if (servicesTitle) {
-        console.log("innerHTML вузла:", servicesTitle.innerHTML);
-        console.log("outerHTML вузла:", servicesTitle.outerHTML);
         console.log("textContent вузла:", servicesTitle.textContent);
-
-        // Властивість nodeValue / data зазвичай використовується для текстових вузлів
-        if (servicesTitle.firstChild) {
-            console.log("nodeValue текстового вузла:", servicesTitle.firstChild.nodeValue);
-        }
     }
 
-    // Створення елементів та методи вставки 
-
+    // 2. Створення та вставка панелі (append, prepend, after)
     const infoPanel = document.createElement("div");
     infoPanel.style.backgroundColor = "#a7a7ff";
     infoPanel.style.padding = "15px";
@@ -106,7 +77,6 @@ function manipulateDOM() {
     infoPanel.style.borderRadius = "8px";
 
     const panelText = document.createTextNode("Цей сайт для любителів швидкості!");
-
     infoPanel.append(panelText);
 
     const badge = document.createElement("strong");
@@ -118,22 +88,34 @@ function manipulateDOM() {
         mainTitle.after(infoPanel);
     }
 
-    const oldFactBlock = document.getElementById("fact-block");
-    if (oldFactBlock) {
-        const newFactBlock = document.createElement("div");
-        newFactBlock.className = "float-right";
-        newFactBlock.style.backgroundColor = "#81a1ec";
-        newFactBlock.innerHTML = "<b>Оновлений факт:</b>  1919 році літак із двигуном BMW встановив рекорд висоти, піднявшись на 9 760 метрів.";
-        oldFactBlock.replaceWith(newFactBlock);
-    }
+    // 3. Динамічна заміна вузла (replaceWith) з таймером (BOM)
+    const factBlock = document.getElementById("fact-block");
 
-    const itemToRemove = document.querySelector(".remove-me");
-    if (itemToRemove) {
-        itemToRemove.remove();
+    if (factBlock) {
+        const originalContent = factBlock.innerHTML;
+
+        const newFactBlock = document.createElement("div");
+        newFactBlock.style.padding = "15px";
+        newFactBlock.style.border = "2px dashed #3498db";
+        newFactBlock.style.margin = "10px 0";
+        newFactBlock.innerHTML = "<b>Ефект replaceWith:</b> Цей текст з'явився через заміну вузла і зникне через 10 секунд!";
+
+        // Чекаємо 2 секунди і замінюємо
+        setTimeout(() => {
+            factBlock.replaceWith(newFactBlock);
+            console.log("Факт замінено на новий вузол.");
+
+            // Чекаємо ще 10 секунд і повертаємо як було
+            setTimeout(() => {
+                newFactBlock.replaceWith(factBlock);
+                factBlock.innerHTML = originalContent;
+                console.log("Початковий факт повернуто.");
+            }, 10000);
+        }, 2000);
     }
 }
 
-// Окрема функція для тестування document.write
+// Окремі функції для кнопок
 function testDocumentWrite() {
     let agree = confirm("Увага! document.write перезапише всю існуючу сторінку. Продовжити?");
     if (agree) {
@@ -142,34 +124,27 @@ function testDocumentWrite() {
     }
 }
 
-// Викликаємо функції, що мають спрацювати автоматично
+// Головний ініціалізатор подій
 document.addEventListener("DOMContentLoaded", () => {
-    // Виклик функції інформації про розробника
+    // 1. Інфо про розробника
     showDeveloperInfo("Гладун", "Варвара");
 
-    // Зміна фону на 30 сек
-    changeBackgroundTemporarily();
-
-    // Маніпуляції з DOM
+    // 2. Запуск маніпуляцій з DOM (там тепер і таймер, і заміна)
     manipulateDOM();
 
+    // 3. Обробник для кнопки порівняння рядків
     const compareBtn = document.getElementById("compare-strings-btn");
-
     if (compareBtn) {
         compareBtn.addEventListener("click", () => {
-            let word1 = prompt("Введіть перше слово (наприклад, Автомобіль):", "Volkswagen");
+            let word1 = prompt("Введіть перше слово:", "Volkswagen");
             let word2 = prompt("Введіть друге слово:", "BMW");
 
             if (word1 !== null && word2 !== null) {
                 compareStrings(word1, word2);
-            } else {
-                alert("Дію скасовано.");
             }
         });
     }
-
 });
-
 
 // Міні-гра "ГАРАЖ"
 
