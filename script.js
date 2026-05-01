@@ -147,14 +147,27 @@ document.addEventListener("DOMContentLoaded", () => {
     // Виклик функції інформації про розробника
     showDeveloperInfo("Гладун", "Варвара");
 
-    // Виклик порівняння рядків 
-    compareStrings("Volkswagen", "BMW");
-
     // Зміна фону на 30 сек
     changeBackgroundTemporarily();
 
     // Маніпуляції з DOM
     manipulateDOM();
+
+    const compareBtn = document.getElementById("compare-strings-btn");
+
+    if (compareBtn) {
+        compareBtn.addEventListener("click", () => {
+            let word1 = prompt("Введіть перше слово (наприклад, Автомобіль):", "Volkswagen");
+            let word2 = prompt("Введіть друге слово:", "BMW");
+
+            if (word1 !== null && word2 !== null) {
+                compareStrings(word1, word2);
+            } else {
+                alert("Дію скасовано.");
+            }
+        });
+    }
+
 });
 
 
@@ -209,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
             car.removeEventListener("click", alarmSystem);
             car.style.border = "3px dashed #415a77";
             alert("🔓 Сигналізацію вимкнено. Можете безпечно клікати.");
+
         });
     }
 
