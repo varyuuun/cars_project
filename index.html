@@ -26,22 +26,6 @@
             border: none;
             border-radius: 5px;
         }
-        /* Додаткові стилі для демонстрації маніпуляцій */
-        
-        .highlighted-tuning {
-            background-color: yellow;
-            font-weight: bold;
-        }
-        
-        .junk-item {
-            display: inline-block;
-            margin: 5px;
-            padding: 5px;
-            background: #eee;
-            border: 1px solid #ccc;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
     </style>
 </head>
 
@@ -55,19 +39,19 @@
         <a href="#services"><b>Послуги</b></a>
     </p>
 
-    <!-- Панель кнопок -->
+    <!-- Панель кнопок для виклику функцій з зовнішнього скрипта -->
     <div align="center">
         <button class="action-btn" onclick="userDialog()">Діалог з користувачем</button>
         <button class="action-btn" onclick="redirectToCatalog()">Перейти в каталог</button>
         <button class="action-btn" onclick="testDocumentWrite()">Тест document.write</button>
         <button id="compare-strings-btn" class="action-btn" style="background: #8a01ce;">📏 Знайти найдовше слово</button>
+
     </div>
 
     <hr>
 
     <div class="clearfix">
-        <!-- Блок для replaceWith -->
-        <div class="float-right" id="fact-block" style="background: #f1f2f6; padding: 10px; border: 1px solid #ddd;">
+        <div class="float-right" id="fact-block">
             <b>Цікавий факт:</b> Німецькі автомобілі історично вважаються еталоном якості збірки та інноваційних технологій.
         </div>
         <p style="text-align: center ; font-size: 22px; color: #ff3f3f ; font-style: italic;">
@@ -79,7 +63,6 @@
     <ol type="I" id="services-list">
         <li>Актуальний моніторинг цін на преміальні моделі 2024 року.</li>
         <li>Технічний аналіз типів палива та потужності агрегатів.</li>
-        <!-- Цей пункт буде видалено через 4 секунди -->
         <li class="remove-me">Допомога у пошуку офіційних дилерських центрів в Україні.</li>
     </ol>
 
@@ -96,16 +79,17 @@
         Код проєкту доступний у <a href="https://github.com/varyuuun/cars_project" target="_blank">репозиторії на GitHub</a>.
     </p>
 
+
     <script>
-        // BOM: alert, prompt, confirm
-        window.onload = function() {
-            let isReady = confirm("Бажаєте налаштувати сторінку під себе?");
-            if (isReady) {
-                let userName = prompt("Як вас звати?", "Гість");
-                if (userName) {
-                    alert("Вітаємо, " + userName + ", на порталі Das Auto!");
-                }
+        // Застосування функцій alert, prompt, confirm 
+        let isReady = confirm("Бажаєте налаштувати сторінку під себе?");
+        if (isReady) {
+            let userName = prompt("Як вас звати?", "Гість");
+            if (userName) {
+                alert("Вітаємо, " + userName + ", на порталі Das Auto!");
             }
+        } else {
+            alert("Ви переглядаєте сторінку у стандартному режимі.");
         }
     </script>
 
@@ -113,8 +97,8 @@
     <h2 id="game-title">🎮 Міні-гра: Інтерактивний Гараж</h2>
 
     <div class="game-container">
-        <!-- Машинка -->
-        <div id="game-car" class="car-object" onmouseenter="inspectCar()" style="padding: 20px; border: 3px dashed #415a77; display: inline-block; transition: all 0.5s ease;">
+        <!-- Машинка. onmouseenter додано через атрибут -->
+        <div id="game-car" class="car-object" onmouseenter="inspectCar()">
             <span style="font-size: 40px;">🚙</span>
             <p>Ваше авто</p>
         </div>
@@ -124,16 +108,18 @@
             <button id="unlock-btn" class="action-btn" style="background: #ff3f3f;">🔓 Вимкнути сигналізацію</button>
         </div>
 
-        <div class="game-panels" style="display: flex; justify-content: space-around; margin-top: 20px;">
+        <div class="game-panels">
+            <!-- Меню списку: Тюнінг (Делегування) -->
             <div class="panel">
                 <h4>🛠️ Тюнінг-меню:</h4>
-                <ul id="tuning-list" class="tuning-list" style="list-style: none; padding: 0; cursor: pointer;">
+                <ul id="tuning-list" class="tuning-list">
                     <li>Спортивний вихлоп</li>
                     <li>Тонування вікон</li>
                     <li>Неонова підсвітка</li>
                 </ul>
             </div>
 
+            <!-- Меню кнопок: Рух (data-action) -->
             <div class="panel">
                 <h4>🕹️ Керування рухом:</h4>
                 <div id="drive-menu" class="nav-menu">
@@ -144,6 +130,7 @@
             </div>
         </div>
 
+        <!-- Патерн Behavior -->
         <div align="center" style="margin-top: 20px;">
             <h4>🧹 Приберіть гараж (клікніть на сміття):</h4>
             <span data-behavior="clean" class="junk-item">🛞 Стара шина</span>
@@ -152,8 +139,7 @@
         </div>
     </div>
 
-    <!-- Підключаємо script_2.js -->
-    <script src="script_2.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
