@@ -69,7 +69,7 @@ function changeBackgroundTemporarily() {
 
 // Перенаправлення за допомогою об'єкта location
 function redirectToPage(url) {
-    location.href = url; // Можна також використати location.assign(url)
+    location.href = url;
 }
 // Функція-обгортка для кнопки
 function redirectToCatalog() {
@@ -100,12 +100,12 @@ function manipulateDOM() {
     // Створення елементів та методи вставки 
 
     const infoPanel = document.createElement("div");
-    infoPanel.style.backgroundColor = "#ffeaa7";
+    infoPanel.style.backgroundColor = "#a7a7ff";
     infoPanel.style.padding = "15px";
     infoPanel.style.margin = "20px 0";
     infoPanel.style.borderRadius = "8px";
 
-    const panelText = document.createTextNode("Це динамічно створена панель через JavaScript!");
+    const panelText = document.createTextNode("Цей сайт для любителів швидкості!");
 
     infoPanel.append(panelText);
 
@@ -122,8 +122,8 @@ function manipulateDOM() {
     if (oldFactBlock) {
         const newFactBlock = document.createElement("div");
         newFactBlock.className = "float-right";
-        newFactBlock.style.backgroundColor = "#81ecec";
-        newFactBlock.innerHTML = "<b>Оновлений факт:</b> Цей блок був повністю змінений за допомогою методу <i>replaceWith()</i>.";
+        newFactBlock.style.backgroundColor = "#81a1ec";
+        newFactBlock.innerHTML = "<b>Оновлений факт:</b>  1919 році літак із двигуном BMW встановив рекорд висоти, піднявшись на 9 760 метрів.";
         oldFactBlock.replaceWith(newFactBlock);
     }
 
