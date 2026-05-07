@@ -248,3 +248,95 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Події MOUSEOVER / MOUSEOUT (target та relatedTarget)
+    const hoverGrid = document.getElementById("hover-grid");
+    const dealerInfo = document.getElementById("dealer-info");
+
+    if (hoverGrid && dealerInfo) {
+        hoverGrid.addEventListener("mouseover", (event) => {
+            const target = event.target;
+            const related = event.relatedTarget;
+
+            if (target.classList.contains("dealer-badge")) {
+                target.classList.add("hovered");
+
+                let previousTag = related ? related.tagName.toLowerCase() : "невідомо";
+                dealerInfo.innerHTML = `📌 <b>${target.dataset.info}</b> <br><span style="font-size: 12px; color: #778da9;">(Курсор перейшов з тегу: &lt;${previousTag}&gt;)</span>`;
+            }
+        });
+
+        hoverGrid.addEventListener("mouseout", (event) => {
+            const target = event.target;
+
+            if (target.classList.contains("dealer-badge")) {
+                target.classList.remove("hovered");
+                dealerInfo.textContent = "Наведіть на місто, щоб побачити деталі...";
+            }
+        });
+    }
+
+    // DRAG AND DROP (mousedown, mousemove, mouseup) 
+    const dragItem = document.getElementById("drag-item");
+    const dropZone = document.getElementById("drop-zone");
+    const dragContainer = document.getElementById("drag-container");
+
+    if (dragItem && dropZone && dragContainer) {
+        let isDragging = false;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        dragItem.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            dragItem.style.cursor = "grabbing";
+            dragItem.style.transform = "scale(1.05)";
+
+            const rect = dragItem.getBoundingClientRect();
+            offsetX = e.clientX - rect.left;
+            offsetY = e.clientY - rect.top;
+
+            e.preventDefault();
+        });
+
+        document.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+
+            const containerRect = dragContainer.getBoundingClientRect();
+
+            let newX = e.clientX - containerRect.left - offsetX;
+            let newY = e.clientY - containerRect.top - offsetY;
+
+            dragItem.style.left = `${newX}px`;
+            dragItem.style.top = `${newY}px`;
+        });
+
+        document.addEventListener("mouseup", (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+
+            dragItem.style.cursor = "grab";
+            dragItem.style.transform = "scale(1)";
+
+            const dragRect = dragItem.getBoundingClientRect();
+            const dropRect = dropZone.getBoundingClientRect();
+
+            if (
+                dragRect.left < dropRect.right &&
+                dragRect.right > dropRect.left &&
+                dragRect.top < dropRect.bottom &&
+                dragRect.bottom > dropRect.top
+            ) {
+
+                dropZone.style.backgroundColor = "#ffeaa7";
+                dropZone.style.color = "#000";
+                dropZone.style.border = "2px solid #253450";
+                dropZone.innerHTML = "🎉 Знижку<br>активовано!";
+
+                dragItem.style.transition = "transform 0.3s";
+                dragItem.style.transform = "scale(0)";
+                setTimeout(() => dragItem.remove(), 300);
+            }
+        });
+    }
+});

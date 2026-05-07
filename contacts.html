@@ -40,7 +40,40 @@
 
     <br>
     <p align="center">Більше інформації на сторінці <a href="history.html">Історія та Медіа</a>.</p>
+
+    <hr>
+    <h3 align="center">📍 Інтерактивна мапа філіалів</h3>
+    <p align="center" style="font-size: 14px; color: #778da9;">(Наведіть мишею на місто)</p>
+
+    <div id="interactive-dealers" style="padding: 20px; background: #e2e8f0; border-radius: 10px; margin-bottom: 20px;">
+        <div class="dealer-grid" id="hover-grid" style="margin-top: 10px;">
+            <span class="dealer-badge" data-info="Головний офіс: працює 24/7">📞 Київ</span>
+            <span class="dealer-badge" data-info="Знижки 15% на сервісне обслуговування">🛠️ Львів</span>
+            <span class="dealer-badge" data-info="Запишіться на безкоштовний тест-драйв">🌊 Одеса</span>
+        </div>
+        <p id="dealer-info" style="text-align: center; font-weight: bold; min-height: 25px; margin-top: 15px; color: #1b263b;">
+            Наведіть на місто, щоб побачити деталі...
+        </p>
+    </div>
+
+    <hr>
+    <h3 align="center">🎁 Отримайте персональну знижку</h3>
+    <p align="center" style="font-size: 14px; color: #778da9;">(Перетягніть купон у сейф)</p>
+
+    <div id="drag-container" style="position: relative; height: 200px; border: 2px dashed #415a77; border-radius: 10px; background: #ffffff; margin-bottom: 30px; overflow: hidden;">
+
+        <div id="drop-zone" style="position: absolute; right: 20px; top: 30px; width: 120px; height: 120px; border: 2px solid #8a01ce; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: #f8fbff; text-align: center; font-weight: bold;">
+            Сейф<br>для купону
+        </div>
+
+        <div id="drag-item" style="position: absolute; left: 20px; top: 60px; padding: 15px; background: #ff3f3f; color: white; border-radius: 8px; cursor: grab; font-weight: bold; user-select: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+            🎟️ Купон -10%
+        </div>
+
+    </div>
+
     <p align="center"><a href="index.html">Повернутися на головну</a></p>
+    <script src="script.js"></script>
 </body>
 
 </html>
